@@ -1,0 +1,19 @@
+# IDE
+.idea/
+.vscode/*
+
+# Backup files
+*.bak
+
+# Environment
+venv/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# local
+*.local
