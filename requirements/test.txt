@@ -1,0 +1,23 @@
+-r base.txt
+
+# Testing
+pytest
+
+# To run test in parallel
+# Docs: https://github.com/pytest-dev/pytest-xdist
+pytest-xdist
+
+# To prettify pytest output
+pytest-sugar
+
+# This plugin produces coverage reports.
+pytest-cov
+
+# Use fixtures in @pytest.mark.parametrize
+pytest-lazy-fixture
+
+# Typing stubs for pytest-lazy-fixture
+types-pytest-lazy-fixture
+
+# This plugin provides a mocker fixture
+pytest-mock
