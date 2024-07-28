@@ -61,3 +61,23 @@ class NotSuperuserException(CustomException):
 
     def __init__(self):
         super().__init__('User is not superuser')
+
+
+class AdNotFoundException(CustomException):
+    """Raised when Ad not found."""
+
+    def __init__(self):
+        super().__init__(
+            message='Ad not found',
+            status_code=status.HTTP_404_NOT_FOUND,
+        )
+
+
+class ArchivedAdException(CustomException):
+    """Raised when Ad is archived."""
+
+    def __init__(self):
+        super().__init__(
+            message='Ad is archived',
+            status_code=status.HTTP_403_FORBIDDEN,
+        )
