@@ -4,13 +4,13 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from server.core import exceptions as exc
-from server.deps import get_session
+from server.deps import get_session, get_current_active_user
 from server.models import ad as model_ad
 from server.schemas import ad as schema_ad
 from server.service import ad as service_ad
 from server.tasks import sync_ads_list
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_active_user)])
 
 
 @router.get('/', response_model=list[schema_ad.Ad])
