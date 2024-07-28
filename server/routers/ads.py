@@ -8,6 +8,7 @@ from server.deps import get_session
 from server.models import ad as model_ad
 from server.schemas import ad as schema_ad
 from server.service import ad as service_ad
+from server.tasks import sync_ads_list
 
 router = APIRouter()
 
@@ -23,6 +24,12 @@ async def get_ads_list(
         with_order=True,
     )
     return ads
+
+
+@router.post('/', status_code=204)
+async def sync_ads():
+    """Run celery task with actual ads synchronization."""
+    sync_ads_list.delay()
 
 
 @router.get('/{ad_id}', response_model=schema_ad.Ad)
